@@ -1,0 +1,9 @@
+Import('env')
+module_env = env.Clone()
+
+module_env.add_source_files(env.modules_sources, "*.cpp")
+
+LIB_PATH = "qr_code_generator/cpp"
+
+module_env.Append(CPPPATH=[LIB_PATH])
+module_env.add_source_files(env.modules_sources, LIB_PATH+"/qrcodegen.cpp")
